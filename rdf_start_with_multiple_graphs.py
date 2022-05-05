@@ -30,7 +30,7 @@ triple_to_tripleId = {}
 temp_statements  = []
 
 
-def process_triple(triple_string, graph_name):
+def process_ntriple(triple_string, graph_name):
     global statements,triple_to_tripleId,tripleId_to_triple,temp_statements
     if graph_name not in statements:
         statements[graph_name] = []
@@ -56,6 +56,16 @@ def print_statements(graph_name):
     for i in statements[graph_name]:
         print(i)
 
+def isTriple(triple_string, graph_name):
+    if graph_name not in triple_to_tripleId:
+        print("graph with name " +graph_name + " not found")
+        return
+    else:
+        if triple_string in triple_to_tripleId[graph_name]:
+            print("given triple exists in graph " + graph_name)
+            print("triple id is " + triple_to_tripleId[graph_name][triple_string])
+        else:
+            print("given triple does not exist in graph " + graph_name)
 
 def process(string,level,graph_name):
     global temp_statements
@@ -228,6 +238,7 @@ while run:
     print("0) To quit press 0")
     print("1) To insert N-Triple press 1")
     print("2) To get all statements in graph press 2")
+    print("3) To check if triple exists in a graph press 3")
 
     ch = input()
 
@@ -236,11 +247,18 @@ while run:
         graph_name = input()
         print("Enter N-triple")
         triple_string = input()
-        process_triple(triple_string, graph_name)
+        process_ntriple(triple_string, graph_name)
     elif ch=="2":
         print("Enter graph name")
         graph_name = input()
         print_statements(graph_name)
+    elif ch=="3":
+        print("Enter graph name")
+        graph_name = input()
+        print("Enter N-triple")
+        triple_string = input()
+        isTriple(triple_string, graph_name)
+        
     elif ch=="0":
         print("Quitting...")
         run = False
