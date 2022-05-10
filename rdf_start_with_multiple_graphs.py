@@ -231,6 +231,12 @@ def process(string,level,graph_name):
 
 
 
+def process_nquad(nquad_string):
+    graph_name = nquad_string[1 + nquad_string.rfind(':'):-2]
+    triple_part = nquad_string[:nquad_string.rfind(':')].strip() + " >>"
+    process_ntriple(triple_part, graph_name)
+    
+
 
 run = True
 while run:
@@ -239,6 +245,7 @@ while run:
     print("1) To insert N-Triple press 1")
     print("2) To get all statements in graph press 2")
     print("3) To check if triple exists in a graph press 3")
+    print("4) To insert N-quad press 4")
 
     ch = input()
 
@@ -258,6 +265,10 @@ while run:
         print("Enter N-triple")
         triple_string = input()
         isTriple(triple_string, graph_name)
+    elif ch=="4":
+        print("Enter N-quad")
+        quad_string = input()
+        process_nquad(quad_string)
         
     elif ch=="0":
         print("Quitting...")
