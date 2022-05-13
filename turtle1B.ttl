@@ -1,0 +1,8 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://iiitd.ac.in/course/sweb/project/financeManagerOf> rdfs:subPropertyOf <http://iiitd.ac.in/course/sweb/project/managerOf> .
+
+<http://iiitd.ac.in/course/sweb/project/employeeOf> rdfs:subPropertyOf <http://iiitd.ac.in/course/sweb/project/humanOf> .
+
+<http://iiitd.ac.in/course/sweb/project/managerOf> rdfs:subPropertyOf <http://iiitd.ac.in/course/sweb/project/employeeOf> .
+
