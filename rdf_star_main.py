@@ -25,6 +25,8 @@ from rdflib.namespace import FOAF, RDF
 
 
     Grammar of N-triples and N-quads is taken from
+    https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#n-triples-star-ebnf
+    https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#n-quads-star-ebnf
 
 
 '''
